@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather by Alex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="tos-popup-overlay">
+        <div id="tos-popup">
+            <h2>Rules & Terms of Service</h2>
+            <div id="tos-content">
+                <p>Welcome to Weather by Alex. By using this application, you agree to the following terms:</p>
+                <ul>
+                    <li>The weather data provided is sourced from Open-Meteo.com and is intended for informational purposes only.</li>
+                    <li>We do not store or collect any personal information about our users.</li>
+                    <li>This service is provided "as is" and we are not responsible for any inaccuracies in the data.</li>
+                    <li>The time on your desktop/mobile is used by your devices timezone.</li>
+                </ul>
+            </div>
+            <button id="agree-btn">I Agree</button>
+        </div>
+    </div>
+
+    <div class="weather-container">
+        <header class="app-header">
+            <h1>Weather by Alex</h1>
+        </header>
+
+        <p id="time"></p>
+
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+            <button id="search-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="info-and-map">
+            <div class="weather-info">
+                <h2 id="city-name"></h2>
+                
+                <div class="unit-box" data-type="temp">
+                    <p id="temperature-value">Temperature: --°C</p>
+                    <div class="unit-selector">
+                        <button class="unit-btn active" data-unit="celsius">°C</button>
+                        <button class="unit-btn" data-unit="fahrenheit">°F</button>
+                        <button class="unit-btn" data-unit="kelvin">K</button>
+                    </div>
+                </div>
+
+                <div class="unit-box" data-type="feels-like">
+                    <p id="feels-like-value">Feels like: --°C</p>
+                    <div class="unit-selector">
+                        <button class="unit-btn active" data-unit="celsius">°C</button>
+                        <button class="unit-btn" data-unit="fahrenheit">°F</button>
+                        <button class="unit-btn" data-unit="kelvin">K</button>
+                    </div>
+                </div>
+
+                <p id="humidity">Relative Humidity: --%</p>
+                <p id="uv-index">UV Index: --</p>
+                <p id="sunrise-sunset">Sunrise: -- | Sunset: --</p>
+                <p id="air-quality">Air Quality: -- (--)</p>
+
+                <div class="unit-box" data-type="wind">
+                    <p id="wind-speed-value">Wind Speed: -- km/h</p>
+                    <div class="unit-selector">
+                        <button class="unit-btn active" data-unit="kmh">km/h</button>
+                        <button class="unit-btn" data-unit="mph">mph</button>
+                        <button class="unit-btn" data-unit="ms">m/s</button>
+                        <button class="unit-btn" data-unit="bft">bft</button>
+                        <button class="unit-btn" data-unit="kn">kn</button>
+                    </div>
+                </div>
+
+                <p id="wind-direction">Wind Direction: --</p>
+
+                <div class="unit-box" data-type="visibility">
+                    <p id="visibility-value">Visibility: -- km</p>
+                    <div class="unit-selector">
+                        <button class="unit-btn active" data-unit="km">km</button>
+                        <button class="unit-btn" data-unit="miles">miles</button>
+                    </div>
+                </div>
+                
+                <div class="unit-box" data-type="pressure">
+                    <p id="pressure-value">Pressure: -- hPa</p>
+                    <div class="unit-selector">
+                        <button class="unit-btn active" data-unit="hPa">hPa</button>
+                        <button class="unit-btn" data-unit="psi">psi</button>
+                        <button class="unit-btn" data-unit="mmHg">mmHg</button>
+                        <button class="unit-btn" data-unit="kPa">kPa</button>
+                        <button class="unit-btn" data-unit="atm">atm</button>
+                    </div>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
+
+        <div class="forecast-area">
+            <div class="forecast-options">
+                <button id="hourly-btn">Hourly</button>
+                <button id="daily-btn" class="active">7-Day</button>
+            </div>
+            <div id="forecast-container"></div>
+        </div>
+
+        <a href="https://github.com/Alexgamezzzzz/Weather-web/issues/new" class="feedback-button" target="_blank">
+            Give Feedback on GitHub
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
