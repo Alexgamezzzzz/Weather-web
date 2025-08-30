@@ -2,6 +2,11 @@
 
 Welcome to Weather by Alex! This is a dynamic and interactive web application that provides real-time weather information for any city you search. The app is built with HTML, CSS, and JavaScript and features live weather data, a 7-day forecast, unit conversion, and a live map of the searched location.
 
+## Website 
+- **visit https://alexgamezzzzz.github.io/Weather-web/
+- **You must agree to the rules
+- done.
+
 ## Features
 
 - **Live Weather Data**: Get up-to-the-minute weather for any city.
