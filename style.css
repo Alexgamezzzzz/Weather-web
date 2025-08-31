@@ -24,8 +24,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    transition: background 1s ease-in-out;
-    color: var(--text-light);
+    transition: background 1s ease-in-out, color 0.5s ease-in-out; /* Add color transition */
+    color: var(--text-light); /* Default text color is light */
     position: relative;
     background-size: cover;
     background-position: center;
@@ -34,6 +34,7 @@ body {
 /* Time-of-day backgrounds */
 body.day {
     background-image: linear-gradient(to top, #89cff0, #5ac8fa, #4fc0f0);
+    color: var(--text-dark); /* Change text color for day */
 }
 
 body.evening {
@@ -45,7 +46,8 @@ body.night-stars {
 }
 
 body.sunrise {
-    background-image: linear-gradient(to top, #fce18d, #f08a5d);
+    background-image: linear-gradient(to top, #ffcc00, #ff8c00, #ff4500);
+    color: var(--text-dark);
 }
 
 /* --- Weather Effects --- */
@@ -192,6 +194,11 @@ body.sunrise {
     margin-bottom: 20px;
 }
 
+/* New: Change h1 color for light themes */
+body.day h1, body.sunrise h1 {
+    color: var(--text-dark);
+}
+
 .app-logo {
     width: 50px;
     height: 50px;
@@ -201,6 +208,7 @@ h1 {
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1px;
+    transition: color 0.5s ease;
 }
 
 #time {
@@ -269,6 +277,12 @@ h2 {
     font-size: 2.5rem;
     margin-bottom: 10px;
     text-align: center;
+    transition: color 0.5s ease;
+}
+
+/* New: Change h2 color for light themes */
+body.day h2, body.sunrise h2 {
+    color: var(--text-dark);
 }
 
 .weather-info p {
@@ -311,12 +325,24 @@ h2 {
     transition: background 0.2s ease;
 }
 
+/* New: Make unit buttons readable on light backgrounds */
+body.day .unit-btn, body.sunrise .unit-btn {
+    background: rgba(0, 0, 0, 0.15);
+    color: var(--text-dark);
+}
+
 .unit-btn:hover {
     background: rgba(0, 0, 0, 0.5);
 }
 
 .unit-btn.active {
     background: var(--primary-color);
+}
+
+/* New: Make active unit button readable on light backgrounds */
+body.day .unit-btn.active, body.sunrise .unit-btn.active {
+    background: var(--primary-color);
+    color: var(--text-light);
 }
 
 .forecast-area {
@@ -341,11 +367,23 @@ h2 {
     transition: background 0.3s ease;
 }
 
+/* New: Make forecast options buttons readable on light backgrounds */
+body.day .forecast-options button, body.sunrise .forecast-options button {
+    background: rgba(0, 0, 0, 0.15);
+    color: var(--text-dark);
+}
+
 .forecast-options button:hover {
     background: rgba(0, 0, 0, 0.5);
 }
 
 .forecast-options button.active {
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* New: Make active forecast options button readable on light backgrounds */
+body.day .forecast-options button.active, body.sunrise .forecast-options button.active {
     background: var(--primary-color);
     color: var(--text-light);
 }
